@@ -1,2 +1,2 @@
 # CoachDance
-Aplicación de entrenamiento personal
+Aplicación de entrenamiento personal de baile
