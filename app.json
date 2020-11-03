@@ -1,0 +1,12 @@
+{
+  "name": "coach_dance",
+  "displayName": "coach_dance",
+  "expo": {
+    "name": "coach_dance",
+    "slug": "coach_dance",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
