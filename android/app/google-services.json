@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "636118799979",
+    "firebase_url": "https://coachdance-b2fb9.firebaseio.com",
+    "project_id": "coachdance-b2fb9",
+    "storage_bucket": "coachdance-b2fb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636118799979:android:cefe2622253c30abdd032e",
+        "android_client_info": {
+          "package_name": "com.coachdance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636118799979-o0hd2heag9u8ol9vrkhl6ivrm2o12q4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coachdance",
+            "certificate_hash": "64a6ebc072c3f4605619ef1d860a3a1a1214f4e6"
+          }
+        },
+        {
+          "client_id": "636118799979-c19422cbb5sika4gulpnee9qnb8hjv6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIEEV4m83uqdf63RGuaJCAOsqeZwiimQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636118799979-c19422cbb5sika4gulpnee9qnb8hjv6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

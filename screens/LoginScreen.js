@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
-const LoginScreen = () => {
+import { AuthContext } from '../navigation/AuthProviders';
+
+const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+  const { login } = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
@@ -22,7 +26,7 @@ const LoginScreen = () => {
                 labelValue={email}
                 onChangeText={(userEmail) => setEmail(userEmail)}
                 placeHolderText="Email"
-                iconType="user"
+                iconType="mail"
                 keyboardType="email-address"
             />
 
@@ -36,7 +40,7 @@ const LoginScreen = () => {
 
             <FormButton 
                 buttonTitle="Login" 
-                onPress={() => alert('Login clicked!')}
+                onPress={() => login(email, password)}
             />
 
             <TouchableOpacity
@@ -48,7 +52,7 @@ const LoginScreen = () => {
 
             <TouchableOpacity
                 style={styles.navButton}
-                onPress={() => alert('Signup clicked!')}
+                onPress={() => navigation.navigate('Signup')}
             >
                 <Text style={styles.navButtonText}>Don't have an account? Create here</Text>
             </TouchableOpacity>
