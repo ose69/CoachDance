@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
 
 export const AuthContext = createContext();
 
@@ -24,9 +25,24 @@ export const AuthProvider = ({ children }) => {
                     }
                     
                 },
-                register: async (email, password) => {
+                register: async (email, password, name, lastName, phone, isCoach) => {
                     try {
-                        await auth().createUserWithEmailAndPassword(email, password);
+                        await auth()
+                            .createUserWithEmailAndPassword(email, password)
+                            .then(() => {
+                                const uid = auth().currentUser.uid;
+
+                                database()
+                                .ref(`/users/${uid}`)
+                                .set({
+                                    uidUser: uid,
+                                    emailUser: email,
+                                    nameUser: name,
+                                    lastNameUser: lastName,
+                                    phoneUser: phone,
+                                    isCoach: isCoach
+                                }); 
+                        });
                     } catch(e) {
                         console.log(e);
                     }

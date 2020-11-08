@@ -6,7 +6,7 @@ import { AuthContext } from '../navigation/AuthProviders';
 
 import database from '@react-native-firebase/database';
 
-const HomeTest = () => {
+const HomeTestCoach = () => {
     const [nameUser, setNameUser] = useState('');
     const { logout, user } = useContext(AuthContext);
     
@@ -20,13 +20,13 @@ const HomeTest = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome {nameUser}</Text>
+            <Text style={styles.text}>Welcome coach {nameUser}</Text>
             <FormButton buttonTitle="Logout" onPress={() => logout()}></FormButton>
         </View>
     );
 }
 
-export default HomeTest;
+export default HomeTestCoach;
 
 const styles = StyleSheet.create({
     container: {
