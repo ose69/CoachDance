@@ -6,14 +6,17 @@ import FormInput from '../components/FormInput';
 
 import { AuthContext } from '../navigation/AuthProviders';
 
+import auth from '@react-native-firebase/auth';
+
 const SignupScreen = ({navigation}) => {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState();
+    const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
- 
+    const isCoach = false;
+
     const { register } = useContext(AuthContext);
 
     return(
@@ -70,7 +73,7 @@ const SignupScreen = ({navigation}) => {
 
             <FormButton 
                 buttonTitle="Sign up"
-                onPress={() => register(email, password)}
+                onPress={() => register(email, password, name, lastName, phone, isCoach)}
             />
 
             <TouchableOpacity style={styles.navButton}>

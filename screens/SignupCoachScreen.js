@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import FormButton from '../components/FormButton';
 import FormInput from '../components/FormInput';
+
+import { AuthContext } from '../navigation/AuthProviders';
 
 const SignupCoachScreen = ({navigation}) => {
     const [name, setName] = useState('');
@@ -11,28 +13,31 @@ const SignupCoachScreen = ({navigation}) => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const isCoach = true;
  
+    const { register } = useContext(AuthContext);
+
     return(
         <View style={styles.container}>
             <Text style={styles.text}>Create a coach account</Text>
 
             <FormInput 
                 labelValue={name}
-                onChange={(userName) => setName(userName)}
+                onChangeText={(userName) => setName(userName)}
                 iconType="user"
                 placeHolderText="Name"
             />
 
             <FormInput 
                 labelValue={lastName}
-                onChange={(userLastName) => setLastName(userLastName)}
+                onChangeText={(userLastName) => setLastName(userLastName)}
                 iconType="user"
                 placeHolderText="Last name"
             />
 
             <FormInput 
                 labelValue={email}
-                onChange={(userEmail) => setEmail(userEmail)}
+                onChangeText={(userEmail) => setEmail(userEmail)}
                 iconType="mail"
                 keyboardType="email-address"
                 placeHolderText="Email"
@@ -40,7 +45,7 @@ const SignupCoachScreen = ({navigation}) => {
 
             <FormInput 
                 labelValue={phone}
-                onChange={(userPhone) => setPhone(userPhone)}
+                onChangeText={(userPhone) => setPhone(userPhone)}
                 iconType="phone"
                 keyboardType="numeric"
                 placeHolderText="Phone number"
@@ -48,7 +53,7 @@ const SignupCoachScreen = ({navigation}) => {
 
             <FormInput 
                 labelValue={password}
-                onChange={(userPassword) => setPassword(userPassword)}
+                onChangeText={(userPassword) => setPassword(userPassword)}
                 iconType="lock"
                 placeHolderText="Password"
                 secureTextEntry={true}
@@ -56,7 +61,7 @@ const SignupCoachScreen = ({navigation}) => {
 
             <FormInput 
                 labelValue={confirmPassword}
-                onChange={(confirmUserPassword) => setConfirmPassword(confirmUserPassword)}
+                onChangeText={(confirmUserPassword) => setConfirmPassword(confirmUserPassword)}
                 iconType="lock"
                 placeHolderText="Confirm password"
                 secureTextEntry={true}
@@ -64,7 +69,7 @@ const SignupCoachScreen = ({navigation}) => {
 
             <FormButton 
                 buttonTitle="Sign up"
-                onPress={() => alert('Hola')}
+                onPress={() => register(email, password, name, lastName, phone, isCoach)}
             />
 
         </View>
