@@ -53,6 +53,15 @@ export const AuthProvider = ({ children }) => {
                     } catch(e) {
                         console.log(e);
                     }
+                },
+                addTest: async (title, description) => {
+                    try {
+                        database()
+                        .ref(`/addTest`)
+                        .push({title, description})
+                    } catch(e) {
+                        console.log(e);
+                    }
                 }
             }}
         >
